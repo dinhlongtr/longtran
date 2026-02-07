@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: tên-user-của-bạn/tên-repo-của-bạn # Ví dụ: nguyenvana/my-blog
+  branch: main # Nhánh bạn dùng để chứa code
+
+media_folder: "static/images" # Nơi lưu ảnh bạn tải lên khi viết bài
+public_folder: "/images"
+
+collections:
+  - name: "blog" # Tên nhóm bài viết
+    label: "Bài viết"
+    folder: "content/posts" # Đường dẫn đến nơi chứa các file .md của Hugo
+    create: true # Cho phép tạo bài mới
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields: # Các ô bạn sẽ nhập khi đăng bài
+      - { label: "Tiêu đề", name: "title", widget: "string" }
+      - { label: "Ngày đăng", name: "date", widget: "datetime" }
+      - { label: "Mô tả ngắn", name: "description", widget: "text" }
+      - { label: "Ảnh bìa", name: "featured_image", widget: "image", required: false }
+      - { label: "Nội dung bài viết", name: "body", widget: "markdown" }
